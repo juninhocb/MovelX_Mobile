@@ -22,11 +22,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin{
   void initState(){
     super.initState();
     //TODO load resources in near future
-    controller = AnimationController(vsync: this, duration: const Duration(seconds: 2))..forward();
+    controller = AnimationController(vsync: this, duration: AppConstants.twoSeconds)..forward();
     animation = CurvedAnimation(parent: controller, curve: Curves.linear);
-    Timer.periodic(const Duration(seconds: 3), (timer) {
+    Timer.periodic(AppConstants.threeSeconds  , (timer) {
       //TODO verify is user is logged in
-      Get.toNamed(AppRoutes.getLoginPage());
+      Navigator.pushReplacementNamed(context, AppRoutes.getLoginPage());
     });
   }
 
