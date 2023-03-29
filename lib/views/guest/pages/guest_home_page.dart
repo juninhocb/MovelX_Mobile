@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,12 +18,30 @@ class _HomePageState extends State<GuestHomePage> {
   final CarouselController _carouselController = CarouselController();
   final _pageLength = 5;
   double _currentIndexPage = 0.0;
-  List<String> _imagesPath = [
+  final List<String> _topProjectsImagesPath = const [
     AppConstants.guestImage1,
     AppConstants.guestImage2,
     AppConstants.guestImage3,
     AppConstants.guestImage4,
     AppConstants.guestImage5
+  ];
+
+  final List<String> _logoOfEnterpriseImagesPath = const [
+    AppConstants.logoImage1,
+    AppConstants.logoImage2,
+    AppConstants.logoImage3,
+    AppConstants.logoImage4,
+    AppConstants.logoImage5,
+    AppConstants.logoImage6,
+  ];
+
+  final List<String> _nameOfEnterprise = const [
+    "Gran Móveis",
+    "Marcenaria Rosler Móveis",
+    "Innfino Indústria de Móveis",
+    "Modulalr Móveis",
+    "Marcenaria São Luiz",
+    "RK Móveis e Projetos"
   ];
 
   String _currentImage = AppConstants.guestImage1;
@@ -99,7 +115,7 @@ class _HomePageState extends State<GuestHomePage> {
   }
 
   Widget _buildBody() {
-    return Container(
+    return Expanded(
       child: Column(
         children: [_buildFirstBodyPart(),
           _buildDots(),
@@ -109,119 +125,107 @@ class _HomePageState extends State<GuestHomePage> {
   }
 
   Widget _buildFirstBodyPart() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          margin: EdgeInsets.only(top: 10, left: 10),
-          child: Text(
-            "Melhores projetos 2023",
-            style: TextStyle(fontSize: 25, color: AppColors.detailColor),
-          ),
-        ),
-        SizedBox(
-          height: 300,
-          child: Stack(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 6.0),
-                child: CarouselSlider(
-                  carouselController: _carouselController,
-                  options: CarouselOptions(
-                      height: 200.0,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _currentIndexPage = index.toDouble();
-                          _currentImage = _imagesPath[index];
-                        });
-                      }),
-                  items: [1, 2, 3, 4, 5].map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            image: DecorationImage(
-                              image: AssetImage(_currentImage),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  }).toList(),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 100,
-                  width: 265,
-                  margin: EdgeInsets.only(
-                      left: 30,
-                      right: 30,
-                      top:170.0), // Add top padding here
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColors.secondaryDetailColor,
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.secondaryDetailColor,
-                        blurRadius: 5.0,
-                        offset: Offset(0, 5),
-                      ),
-                      BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(-5, 0)),
-                      BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(5, 0)),
-                    ],
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Marcenaria BFD", style: TextStyle(
-                          fontSize: 16,
-                          color: AppColors.mainColor,
-                          fontWeight: FontWeight.bold
-                        ),),
-                        SizedBox(height: 7,),
-                        Row(
-                          children: [
-                            Wrap(
-                              children: List.generate(
-                                  5,
-                                      (index) => Icon(Icons.star,
-                                      color: AppColors.mainColor, size: 20)),
-                            ),
-                            SizedBox(width: 15,),
-                            Text("127 comentários", style: TextStyle(
-                              color: AppColors.mainColor
-                            ),)
-                          ],
+    return SizedBox(
+      height: 275,
+      child: Stack(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 6.0),
+            child: CarouselSlider(
+              carouselController: _carouselController,
+              options: CarouselOptions(
+                  height: 200.0,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _currentIndexPage = index.toDouble();
+                      _currentImage = _topProjectsImagesPath[index];
+                    });
+                  }),
+              items: [1, 2, 3, 4, 5].map((i) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        image: DecorationImage(
+                          image: AssetImage(_currentImage),
+                          fit: BoxFit.cover,
                         ),
-                        SizedBox(height: 7,),
-                        Row(
-                          children: [
-                            IconAndText(icon: Icons.monetization_on, text: "R\$ 230,00",),
-                            SizedBox(width: 5,),
-                            IconAndText(icon: Icons.location_on_sharp, text: "1.7 km",),
-                            SizedBox(width: 5,),
-                            IconAndText(icon: Icons.timer_outlined, text: "3 dias",),
-                          ],
-                        )
-
-
+                      ),
+                    );
+                  },
+                );
+              }).toList(),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 110,
+              width: 265,
+              margin: EdgeInsets.only(
+                  left: 30,
+                  right: 30,
+                  top:170.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: AppColors.secondaryDetailColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.secondaryDetailColor,
+                    blurRadius: 5.0,
+                    offset: Offset(0, 5),
+                  ),
+                  BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(-5, 0)),
+                  BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(5, 0)),
+                ],
+              ),
+              child: Container(
+                padding: EdgeInsets.only(top: 15, left: 10, right: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Marcenaria BFD", style: TextStyle(
+                      fontSize: 16,
+                      color: AppColors.mainColor,
+                      fontWeight: FontWeight.bold
+                    ),),
+                    SizedBox(height: 7,),
+                    Row(
+                      children: [
+                        Wrap(
+                          children: List.generate(
+                              5,
+                                  (index) => Icon(Icons.star,
+                                  color: AppColors.mainColor, size: 20)),
+                        ),
+                        SizedBox(width: 15,),
+                        Text("127 comentários", style: TextStyle(
+                          color: AppColors.mainColor
+                        ),)
                       ],
                     ),
-                  ),
+                    SizedBox(height: 7,),
+                    Row(
+                      children: [
+                        IconAndText(icon: Icons.monetization_on, text: "R\$ 230,00",),
+                        SizedBox(width: 5,),
+                        IconAndText(icon: Icons.location_on_sharp, text: "1.7 km",),
+                        SizedBox(width: 5,),
+                        IconAndText(icon: Icons.timer_outlined, text: "3 dias",),
+                      ],
+                    )
+
+
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
-        )
-      ],
+        ],
+      ),
     );
   }
 
@@ -238,15 +242,80 @@ class _HomePageState extends State<GuestHomePage> {
   }
 
   Widget _buildSecondBodyPart() {
-    return Container(
-      height: 200,
+    return Expanded(
       child: ListView.builder(
-          itemCount: 6,
-          itemBuilder: (context, index){
-              return Container(
-                child: Text("The ${index} index"),
-              );
-      }),
+        itemCount: 6,
+        itemBuilder: (context, index){
+          return SizedBox(
+            height: index == 0 ? 110 : 125,
+            child: Container(
+              margin: index == 0 ? EdgeInsets.only(left: 20, right: 20) : EdgeInsets.only(top: 15, left: 20, right: 20),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.secondaryDetailColor,
+                        borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
+                        image: DecorationImage(
+                          image: AssetImage(_logoOfEnterpriseImagesPath[index]),
+                          fit: BoxFit.cover
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 125,
+                      decoration: const BoxDecoration(
+                        color: AppColors.secondaryDetailColor,
+                        borderRadius: BorderRadius.only(topRight: Radius.circular(12), bottomRight: Radius.circular(12)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _nameOfEnterprise[index].toUpperCase(),
+                              style: const TextStyle(
+                                fontSize: 15,
+                                color: AppColors.mainColor,
+                                fontWeight: FontWeight.bold
+                              ),
+
+                            ),
+                            const SizedBox(height: 10,),
+                            const Text(
+                              "Rua Gustavo Zimmermann - 1200, Itoupava Central, Blumenau - Santa Catarina- (SC)",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: AppColors.mainColor
+                              ),
+                            ),
+                            const SizedBox(height: 10,),
+                            const Text(
+                              "(15) 99628-8616",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: AppColors.mainColor
+                              ),
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        }),
     );
   }
 }
