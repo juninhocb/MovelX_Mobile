@@ -9,12 +9,20 @@ class AppConstants {
   static const String guestImage4 = "assets/images/guest_image/kitchen3.jpg";
   static const String guestImage5 = "assets/images/guest_image/living1.jpg";
 
+  //Logo WorkWoods
   static const String logoImage1 = "assets/images/mar_logos/mar_logo1.jpg";
   static const String logoImage2 = "assets/images/mar_logos/mar_logo2.jpg";
   static const String logoImage3 = "assets/images/mar_logos/mar_logo3.jpg";
   static const String logoImage4 = "assets/images/mar_logos/mar_logo4.jpg";
   static const String logoImage5 = "assets/images/mar_logos/mar_logo5.jpg";
   static const String logoImage6 = "assets/images/mar_logos/mar_logo6.jpg";
+
+  static const String avatarImage1 = "assets/images/avatars/avatar1.png";
+  static const String avatarImage2 = "assets/images/avatars/avatar2.png";
+  static const String avatarImage3 = "assets/images/avatars/avatar3.png";
+  static const String avatarImage4 = "assets/images/avatars/avatar4.png";
+  static const String avatarImage5 = "assets/images/avatars/avatar5.png";
+  static const String avatarImage6 = "assets/images/avatars/avatar6.png";
 
   static Duration twoSeconds = const Duration(seconds: 2);
   static Duration threeSeconds = const Duration(seconds: 3);

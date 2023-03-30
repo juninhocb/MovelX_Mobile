@@ -75,7 +75,8 @@ class _LoginPageState extends State<LoginPage> {
         recoverPasswordSuccess: 'Senha recuperada com sucesso',
       ),
       onSubmitAnimationCompleted: () {
-        Navigator.pushReplacementNamed(context, AppRoutes.getGuestHomePage());
+        //Navigator.pushReplacementNamed(context, AppRoutes.getGuestHomePage());
+        Navigator.pushReplacementNamed(context, AppRoutes.getMenuScreen());
       }
 
     );
