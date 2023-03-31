@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mobile_movelx/helpers/constants/app_constants.dart';
+import 'package:mobile_movelx/views/guest/pages/home_children/ProjectFromHomePage.dart';
 
 import '../../../helpers/constants/app_colors.dart';
 import '../../../widgets/icon_and_text.dart';
@@ -125,106 +126,114 @@ class _HomePageState extends State<GuestHomePage> {
   }
 
   Widget _buildFirstBodyPart() {
-    return SizedBox(
-      height: 275,
-      child: Stack(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 6.0),
-            child: CarouselSlider(
-              carouselController: _carouselController,
-              options: CarouselOptions(
-                  height: 200.0,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _currentIndexPage = index.toDouble();
-                      _currentImage = _topProjectsImagesPath[index];
-                    });
-                  }),
-              items: [1, 2, 3, 4, 5].map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        image: DecorationImage(
-                          image: AssetImage(_currentImage),
-                          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: (){
+        if (mounted){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>const ProjectFromHomePage()));
+        }
+
+      },
+      child: SizedBox(
+        height: 275,
+        child: Stack(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 6.0),
+              child: CarouselSlider(
+                carouselController: _carouselController,
+                options: CarouselOptions(
+                    height: 200.0,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _currentIndexPage = index.toDouble();
+                        _currentImage = _topProjectsImagesPath[index];
+                      });
+                    }),
+                items: [1, 2, 3, 4, 5].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          image: DecorationImage(
+                            image: AssetImage(_currentImage),
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                );
-              }).toList(),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 110,
-              width: 265,
-              margin: EdgeInsets.only(
-                  left: 30,
-                  right: 30,
-                  top:170.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: AppColors.secondaryDetailColor,
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.secondaryDetailColor,
-                    blurRadius: 5.0,
-                    offset: Offset(0, 5),
-                  ),
-                  BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(-5, 0)),
-                  BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(5, 0)),
-                ],
+                      );
+                    },
+                  );
+                }).toList(),
               ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
               child: Container(
-                padding: EdgeInsets.only(top: 15, left: 10, right: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Marcenaria BFD", style: TextStyle(
-                      fontSize: 16,
-                      color: AppColors.mainColor,
-                      fontWeight: FontWeight.bold
-                    ),),
-                    SizedBox(height: 7,),
-                    Row(
-                      children: [
-                        Wrap(
-                          children: List.generate(
-                              5,
-                                  (index) => Icon(Icons.star,
-                                  color: AppColors.mainColor, size: 20)),
-                        ),
-                        SizedBox(width: 15,),
-                        Text("127 comentários", style: TextStyle(
-                          color: AppColors.mainColor
-                        ),)
-                      ],
+                height: 110,
+                width: 265,
+                margin: EdgeInsets.only(
+                    left: 30,
+                    right: 30,
+                    top:170.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: AppColors.secondaryDetailColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.secondaryDetailColor,
+                      blurRadius: 5.0,
+                      offset: Offset(0, 5),
                     ),
-                    SizedBox(height: 7,),
-                    Row(
-                      children: [
-                        IconAndText(icon: Icons.monetization_on, text: "R\$ 230,00",),
-                        SizedBox(width: 5,),
-                        IconAndText(icon: Icons.location_on_sharp, text: "1.7 km",),
-                        SizedBox(width: 5,),
-                        IconAndText(icon: Icons.timer_outlined, text: "3 dias",),
-                      ],
-                    )
-
-
+                    BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(-5, 0)),
+                    BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(5, 0)),
                   ],
+                ),
+                child: Container(
+                  padding: EdgeInsets.only(top: 15, left: 10, right: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Marcenaria BFD", style: TextStyle(
+                        fontSize: 16,
+                        color: AppColors.mainColor,
+                        fontWeight: FontWeight.bold
+                      ),),
+                      SizedBox(height: 7,),
+                      Row(
+                        children: [
+                          Wrap(
+                            children: List.generate(
+                                5,
+                                    (index) => Icon(Icons.star,
+                                    color: AppColors.mainColor, size: 20)),
+                          ),
+                          SizedBox(width: 15,),
+                          Text("127 comentários", style: TextStyle(
+                            color: AppColors.mainColor
+                          ),)
+                        ],
+                      ),
+                      SizedBox(height: 7,),
+                      Row(
+                        children: [
+                          IconAndText(icon: Icons.monetization_on, text: "R\$ 230,00",),
+                          SizedBox(width: 5,),
+                          IconAndText(icon: Icons.location_on_sharp, text: "1.7 km",),
+                          SizedBox(width: 5,),
+                          IconAndText(icon: Icons.timer_outlined, text: "3 dias",),
+                        ],
+                      )
+
+
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

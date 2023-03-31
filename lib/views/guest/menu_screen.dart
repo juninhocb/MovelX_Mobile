@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_home_page.dart';
-import 'package:mobile_movelx/views/guest/pages/home_children/ProjectFromHomePage.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../helpers/constants/app_colors.dart';
@@ -18,12 +17,13 @@ class _MenuScreenState extends State<MenuScreen> {
   List<Widget> _buildScreens() {
     return [
       const GuestHomePage(),
-      const ProjectFromHomePage(),
+      Container(color: Colors.green,),
       Container(color: Colors.blue,),
       Container(color: Colors.blue,),
       Container(color: Colors.blue,)
     ];
   }
+
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [

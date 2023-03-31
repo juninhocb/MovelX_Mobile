@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_movelx/helpers/constants/app_constants.dart';
+import 'package:mobile_movelx/views/guest/pages/guest_home_page.dart';
 
 import '../../../../helpers/constants/app_colors.dart';
 
@@ -48,13 +49,18 @@ class _ProjectFromHomePageState extends State<ProjectFromHomePage> {
             Positioned(
                 left: 15,
                 top: 15,
-                child: Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: AppColors.mainColor),
-                  child: Icon(
-                    Icons.arrow_back_outlined,
-                    color: AppColors.textColor,
-                    size: 30,
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GuestHomePage()));
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: AppColors.mainColor),
+                    child: Icon(
+                      Icons.arrow_back_outlined,
+                      color: AppColors.textColor,
+                      size: 30,
+                    ),
                   ),
                 )),
             Positioned(
