@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mobile_movelx/helpers/constants/app_constants.dart';
-import 'package:mobile_movelx/views/guest/pages/home_children/ProjectFromHomePage.dart';
+import 'package:mobile_movelx/views/guest/pages/home_children/project_from_home_page.dart';
 
 import '../../../helpers/constants/app_colors.dart';
 import '../../../widgets/icon_and_text.dart';

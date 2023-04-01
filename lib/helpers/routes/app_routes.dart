@@ -4,7 +4,7 @@ import 'package:mobile_movelx/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../views/guest/menu_screen.dart';
-import '../../views/guest/pages/home_children/ProjectFromHomePage.dart';
+import '../../views/guest/pages/home_children/project_from_home_page.dart';
 
 class AppRoutes {
   static const String splashScreen = "/splash-page";

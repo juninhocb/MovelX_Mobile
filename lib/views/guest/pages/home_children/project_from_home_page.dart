@@ -63,16 +63,16 @@ class _ProjectFromHomePageState extends State<ProjectFromHomePage> {
                     ),
                   ),
                 )),
-            Positioned(
+            /*Positioned(
                 right: 15,
                 top: 15,
                 child: Container(
                   child: Icon(
-                    Icons.heart_broken,
-                    color: AppColors.textColor,
+                    LineIcons.heart,
+                    color: AppColors.mainColor,
                     size: 30,
                   ),
-                )),
+                )), */
             Positioned(
                 right: 15,
                 bottom: 15,
