@@ -45,7 +45,7 @@ class _GuestMyProjectsState extends State<GuestMyProjects> {
       floatingActionButton: FloatingActionButton(
           backgroundColor: AppColors.mainColor,
           onPressed: (){},
-          child: const Icon(LineIcons.heart, color: AppColors.detailColor,),
+          child: const Icon(Icons.favorite, color: AppColors.detailColor,),
       ),
     );
   }

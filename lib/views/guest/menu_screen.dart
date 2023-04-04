@@ -19,7 +19,7 @@ class _MenuScreenState extends State<MenuScreen> {
     return [
       const GuestHomePage(),
       const GuestMyProjects(),
-      Container(color: Colors.blue,),
+      Container(color: Colors.green),
       Container(color: Colors.blue,),
       Container(color: Colors.blue,)
     ];

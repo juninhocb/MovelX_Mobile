@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mobile_movelx/helpers/constants/app_constants.dart';
 import 'package:mobile_movelx/views/guest/pages/home_children/project_from_home_page.dart';
+import 'package:mobile_movelx/views/guest/pages/home_children/woodwork_from_home_page.dart';
 
 import '../../../helpers/constants/app_colors.dart';
 import '../../../widgets/icon_and_text.dart';
@@ -257,70 +258,77 @@ class _HomePageState extends State<GuestHomePage> {
         itemBuilder: (context, index){
           return SizedBox(
             height: index == 0 ? 110 : 125,
-            child: Container(
-              margin: index == 0 ? EdgeInsets.only(left: 20, right: 20) : EdgeInsets.only(top: 15, left: 20, right: 20),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.secondaryDetailColor,
-                        borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
-                        image: DecorationImage(
-                          image: AssetImage(_logoOfEnterpriseImagesPath[index]),
-                          fit: BoxFit.cover
+            child: GestureDetector(
+              onTap: (){
+                if (mounted){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>const WoodWorkFromHomePage()));
+                }
+              },
+              child: Container(
+                margin: index == 0 ? EdgeInsets.only(left: 20, right: 20) : EdgeInsets.only(top: 15, left: 20, right: 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.secondaryDetailColor,
+                          borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
+                          image: DecorationImage(
+                            image: AssetImage(_logoOfEnterpriseImagesPath[index]),
+                            fit: BoxFit.cover
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      height: 125,
-                      decoration: const BoxDecoration(
-                        color: AppColors.secondaryDetailColor,
-                        borderRadius: BorderRadius.only(topRight: Radius.circular(12), bottomRight: Radius.circular(12)),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              _nameOfEnterprise[index].toUpperCase(),
-                              style: const TextStyle(
-                                fontSize: 15,
-                                color: AppColors.mainColor,
-                                fontWeight: FontWeight.bold
-                              ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: 125,
+                        decoration: const BoxDecoration(
+                          color: AppColors.secondaryDetailColor,
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(12), bottomRight: Radius.circular(12)),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                _nameOfEnterprise[index].toUpperCase(),
+                                style: const TextStyle(
+                                  fontSize: 15,
+                                  color: AppColors.mainColor,
+                                  fontWeight: FontWeight.bold
+                                ),
 
-                            ),
-                            const SizedBox(height: 10,),
-                            const Text(
-                              "Rua Gustavo Zimmermann - 1200, Itoupava Central, Blumenau - Santa Catarina- (SC)",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: AppColors.mainColor
                               ),
-                            ),
-                            const SizedBox(height: 10,),
-                            const Text(
-                              "(15) 99628-8616",
-                              style: TextStyle(
+                              const SizedBox(height: 10,),
+                              const Text(
+                                "Rua Gustavo Zimmermann - 1200, Itoupava Central, Blumenau - Santa Catarina- (SC)",
+                                style: TextStyle(
                                   fontSize: 14,
                                   color: AppColors.mainColor
+                                ),
                               ),
-                            ),
+                              const SizedBox(height: 10,),
+                              const Text(
+                                "(15) 99628-8616",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: AppColors.mainColor
+                                ),
+                              ),
 
 
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
           );
