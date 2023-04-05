@@ -30,6 +30,10 @@ class AppConstants {
   static const String projectImage4 = "assets/images/my_projects/project4.jpg";
   static const String projectImage5 = "assets/images/my_projects/project5.jpg";
 
+  static const String priceImage1 = "assets/images/prices/first.jpg";
+  static const String priceImage2 = "assets/images/prices/second.jpg";
+  static const String priceImage3 = "assets/images/prices/third.jpg";
+
 
   static Duration twoSeconds = const Duration(seconds: 2);
   static Duration threeSeconds = const Duration(seconds: 3);

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_contacts_page.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_home_page.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_my_projects_page.dart';
+import 'package:mobile_movelx/views/guest/pages/guest_prices_page.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../helpers/constants/app_colors.dart';
@@ -21,7 +22,7 @@ class _MenuScreenState extends State<MenuScreen> {
       const GuestHomePage(),
       const GuestMyProjects(),
       const GuestContactsPage(),
-      Container(color: Colors.blue,),
+      const GuestPricesPage(),
       Container(color: Colors.blue,)
     ];
   }
@@ -48,8 +49,8 @@ class _MenuScreenState extends State<MenuScreen> {
         inactiveColorPrimary: AppColors.detailColor,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.settings),
-        title: ("Config"),
+        icon: Icon(CupertinoIcons.money_dollar),
+        title: ("Preços"),
         activeColorPrimary: AppColors.textColor,
         inactiveColorPrimary: AppColors.detailColor,
       ),
