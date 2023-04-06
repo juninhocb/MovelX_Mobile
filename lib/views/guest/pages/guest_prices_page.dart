@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_movelx/helpers/constants/app_constants.dart';
 
 import '../../../helpers/constants/app_colors.dart';
+import '../../../widgets/dialogs.dart';
 
 class GuestPricesPage extends StatefulWidget {
   const GuestPricesPage({Key? key}) : super(key: key);
@@ -123,7 +124,7 @@ class _GuestPricesPageState extends State<GuestPricesPage> {
             width: 300,
             child: ElevatedButton(
               onPressed: () async {
-                await _showConfirmDialog();
+                await Dialogs.showConfirmDialog(context, "Confirmação" , "Deseja prosseguir com o procedimento?", "Prosseguir", "Não");
               },
               child: Text(
                 "Experimentar Grátis",
@@ -142,7 +143,7 @@ class _GuestPricesPageState extends State<GuestPricesPage> {
             width: 300,
             child: ElevatedButton(
               onPressed: () async{
-                await _showConfirmDialog();
+                await Dialogs.showConfirmDialog(context, "Confirmação" , "Deseja prosseguir com o procedimento?", "Prosseguir", "Não");
               },
               child: Text(
                 "Adquirir por R\$ 15,00 ao mês ",
@@ -158,41 +159,5 @@ class _GuestPricesPageState extends State<GuestPricesPage> {
     );
   }
 
-  Future<void> _showConfirmDialog() async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: AppColors.textColor,
-          title: const Text('Confirmação'),
-          content: const Text('Deseja prosseguir com o procedimento?'),
-          actions: <Widget>[
-            TextButton(
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStatePropertyAll(AppColors.mainColor)),
-              child: const Text(
-                'Continuar',
-                style: TextStyle(color: AppColors.textColor),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStatePropertyAll(AppColors.mainColor)),
-              child: const Text('Não',
-                  style: TextStyle(color: AppColors.textColor)),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+
 }

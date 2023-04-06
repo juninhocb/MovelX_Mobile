@@ -1,4 +1,7 @@
 class AppConstants {
+
+  static const String appVersion = "1.0.0";
+
   static const String logoPath = "assets/images/Logo.png";
   static const String logoWithoutBgPath = "assets/images/Logowbg.png";
 
