@@ -1,3 +1,4 @@
+import 'package:mobile_movelx/views/enterprise/enterprise_home_page.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_home_page.dart';
 import 'package:mobile_movelx/views/login/login_page.dart';
 import 'package:mobile_movelx/views/splash/splash_screen.dart';
@@ -13,12 +14,16 @@ class AppRoutes {
   static const String selectPage = "/select-page";
   static const String guestProjectFromHomePage = "/guest-project-page";
 
+  //enterprise pages
+  static const String enterpriseHomePage = "/enterprise-home-page";
+
 
   static String getSplashScreen () => "$splashScreen";
   static String getLoginPage () => "$loginPage";
   static String getGuestHomePage () => "$guestHomePage";
   static String getMenuScreen () => "$selectPage";
   static String getGuestProjectFromHomePage () => "$guestProjectFromHomePage";
+  static String getEnterpriseHomePage () => "$enterpriseHomePage";
 
   static Map<String, WidgetBuilder> getRoutes() {
     return {
@@ -26,7 +31,8 @@ class AppRoutes {
       loginPage: (context) => const LoginPage(),
       guestHomePage: (context) => const GuestHomePage(),
       selectPage: (context) => const MenuScreen(),
-      guestProjectFromHomePage: (context) => const ProjectFromHomePage()
+      guestProjectFromHomePage: (context) => const ProjectFromHomePage(),
+      enterpriseHomePage: (context) => const EnterpriseHomePage()
     };
   }
 

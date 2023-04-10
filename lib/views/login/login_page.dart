@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:mobile_movelx/helpers/constants/app_constants.dart';
 import 'package:mobile_movelx/helpers/routes/app_routes.dart';
+import 'package:mobile_movelx/models/enums/user_roles.dart';
 
+import '../../controllers/dtos/user_dtos.dart';
+
+/*
 const users = {
   'dribbble@gmail.com': '12345',
   'hunter@gmail.com': 'hunter',
   'dev@hotmail.com': '123'
 };
+*/
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -18,6 +23,25 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  List<UserDTO> usersFromDB = [];
+  var users = {
+    "default" : "123"
+  };
+  UserDTO? _userToLogIn;
+
+  @override
+  void initState(){
+    super.initState();
+    //TODO will call USERS on future
+    UserDTO user1 = UserDTO(1, "juninhocb@hotmail.com", "123", "MyEnt", UserRoles.ADMINISTRATOR);
+    UserDTO user2 = UserDTO(2, "dev@hotmail.com", "123", "MyEnt", UserRoles.BOSS);
+    UserDTO user3 = UserDTO(3, "guest@hotmail.com", "123", "MyEnt", UserRoles.GUEST);
+    usersFromDB.add(user1);
+    usersFromDB.add(user2);
+    usersFromDB.add(user3);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,15 +67,18 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<String?> _authUser(LoginData data) {
+
     debugPrint('Name: ${data.name}, Password: ${data.password}');
     return Future.delayed(AppConstants.threeSeconds).then((_) {
-      if (!users.containsKey(data.name)) {
-        return 'User not exists';
+      for (var user in usersFromDB){
+        if (user.username == data.name){
+          if (user.password == data.password){
+            _userToLogIn = user;
+            return null;
+          }
+        }
       }
-      if (users[data.name] != data.password) {
-        return 'Password does not match';
-      }
-      return null;
+      return "Usuário ou senha incorretos.";
     });
   }
 
@@ -76,7 +103,11 @@ class _LoginPageState extends State<LoginPage> {
       ),
       onSubmitAnimationCompleted: () {
         //Navigator.pushReplacementNamed(context, AppRoutes.getGuestHomePage());
-        Navigator.pushReplacementNamed(context, AppRoutes.getMenuScreen());
+        if (_userToLogIn!.role.toString() == UserRoles.ARCHITET.toString() || _userToLogIn!.role.toString() == UserRoles.GUEST.toString()) {
+          Navigator.pushReplacementNamed(context, AppRoutes.getMenuScreen());
+        }else {
+          Navigator.pushReplacementNamed(context, AppRoutes.getEnterpriseHomePage());
+        }
       }
 
     );
