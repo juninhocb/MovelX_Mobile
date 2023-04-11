@@ -37,6 +37,7 @@ class AppConstants {
   static const String priceImage2 = "assets/images/prices/second.jpg";
   static const String priceImage3 = "assets/images/prices/third.jpg";
 
+  static const String homeImage = "assets/images/enterprise/home/roadmap.png";
 
   static Duration twoSeconds = const Duration(seconds: 2);
   static Duration threeSeconds = const Duration(seconds: 3);
