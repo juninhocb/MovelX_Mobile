@@ -1,7 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_movelx/views/enterprise/home_items/1_item_page.dart';
+import 'package:mobile_movelx/views/enterprise/home_items/2_item_page.dart';
+import 'package:mobile_movelx/views/enterprise/home_items/3_item_page.dart';
+import 'package:mobile_movelx/views/enterprise/home_items/4_item_page.dart';
+import 'package:mobile_movelx/views/enterprise/home_items/6_item_page.dart';
+import 'package:mobile_movelx/views/enterprise/home_items/7_item_page.dart';
 import 'package:sidebarx/sidebarx.dart';
+
+import 'home_items/5_item_page.dart';
 
 class PageSelector extends StatelessWidget {
   const PageSelector({
@@ -20,7 +27,18 @@ class PageSelector extends StatelessWidget {
         switch (controller.selectedIndex) {
           case 0:
             return FirstItemPage();
-
+          case 1:
+            return SecondItemPage();
+          case 2:
+            return ThirdItemPage();
+          case 3:
+            return FourthItemPage();
+          case 4:
+            return FifthItemPage();
+          case 5:
+            return SixthItemPage();
+          case 6:
+            return SeventhItemPage();
           case 7:
             return ListView.builder(
               padding: const EdgeInsets.only(top: 10),
