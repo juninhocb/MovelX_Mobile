@@ -1,13 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 
-import '../../../helpers/constants/app_colors.dart';
-import '../../../helpers/constants/app_constants.dart';
-import '../../../widgets/dialogs.dart';
+import '../../helpers/constants/app_colors.dart';
+import '../../helpers/constants/app_constants.dart';
+import '../../helpers/routes/app_routes.dart';
+import '../../widgets/dialogs.dart';
 
-class GuestExitPage extends StatelessWidget {
-  const GuestExitPage({Key? key}) : super(key: key);
+class ExitPage extends StatelessWidget {
+  final BuildContext buildContext;
+
+  const ExitPage({required this.buildContext, Key? key}) : super(key: key);
+
+  void popScreen() {
+    Navigator.pushReplacementNamed(buildContext, AppRoutes.getLoginPage());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +59,10 @@ class GuestExitPage extends StatelessWidget {
                 backgroundColor: MaterialStatePropertyAll(AppColors.mainColor)
               ),
               onPressed: () async{
-                await Dialogs.showConfirmDialog(context, "Confirmação", "Deseja sair do aplicativo?", "Sim", "Não");
+                bool? ret =  await Dialogs.showConfirmDialog(context, "Confirmação", "Deseja sair do aplicativo?", "Sim", "Não");
+                if (ret!){
+                  popScreen();
+                }
               },
               child: Text("Sair do App", style: TextStyle(color: AppColors.textColor, fontSize: 18,))),
           const SizedBox(height: 50,),

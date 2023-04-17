@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_contacts_page.dart';
-import 'package:mobile_movelx/views/guest/pages/guest_exit_page.dart';
+import 'package:mobile_movelx/views/commons/guest_exit_page.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_home_page.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_my_projects_page.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_prices_page.dart';
@@ -24,7 +24,7 @@ class _MenuScreenState extends State<MenuScreen> {
       const GuestMyProjects(),
       const GuestContactsPage(),
       const GuestPricesPage(),
-      const GuestExitPage()
+      ExitPage(buildContext: context)
     ];
   }
 

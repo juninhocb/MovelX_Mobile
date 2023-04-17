@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../helpers/constants/app_colors.dart';
 
 class Dialogs {
-   static Future<void> showConfirmDialog(BuildContext context,  String title, String message, String btnOk, String btnCancel) async {
-    return showDialog<void>(
+   static Future<bool?> showConfirmDialog(BuildContext context,  String title, String message, String btnOk, String btnCancel) async {
+    return showDialog<bool?>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
@@ -22,7 +22,7 @@ class Dialogs {
                 style: TextStyle(color: AppColors.textColor),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(true);
               },
             ),
             TextButton(
@@ -32,7 +32,7 @@ class Dialogs {
               child: Text(btnCancel,
                   style: TextStyle(color: AppColors.textColor)),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(false);
               },
             ),
           ],

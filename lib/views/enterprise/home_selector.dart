@@ -6,6 +6,7 @@ import 'package:mobile_movelx/views/enterprise/home_items/3_item_page.dart';
 import 'package:mobile_movelx/views/enterprise/home_items/4_item_page.dart';
 import 'package:mobile_movelx/views/enterprise/home_items/6_item_page.dart';
 import 'package:mobile_movelx/views/enterprise/home_items/7_item_page.dart';
+import 'package:mobile_movelx/views/commons/guest_exit_page.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 import 'home_items/5_item_page.dart';
@@ -53,6 +54,8 @@ class PageSelector extends StatelessWidget {
                 ),
               ),
             );
+          case 8:
+            return ExitPage(buildContext: context);
           default:
             return Text(
               "Whatever",
