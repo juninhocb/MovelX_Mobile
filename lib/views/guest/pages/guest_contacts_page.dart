@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../helpers/constants/app_colors.dart';
 import '../../../helpers/constants/app_constants.dart';
+import '../../../helpers/dimensions/dimensions.dart';
 
 class GuestContactsPage extends StatefulWidget {
   const GuestContactsPage({Key? key}) : super(key: key);
@@ -53,15 +54,15 @@ class _GuestContactsPageState extends State<GuestContactsPage> {
 
   Widget _buildTopFixedMenu() {
     return Container(
-      padding: EdgeInsets.only(top: 12, right: 12, left: 12),
-      height: 65,
+      padding: EdgeInsets.only(top: Dimensions.height12, right: Dimensions.width12, left: Dimensions.width12),
+      height: Dimensions.height60 + Dimensions.height5,
       color: AppColors.mainColor,
       child: Container(
-        padding: EdgeInsets.only(top: 10),
+        padding: EdgeInsets.only(top: Dimensions.height10),
         width: double.maxFinite,
         child: Text(
           "Contatos",
-          style: TextStyle(color: AppColors.detailColor, fontSize: 25),
+          style: TextStyle(color: AppColors.detailColor, fontSize: Dimensions.height50/2),
         ),
       ),
     );
@@ -75,7 +76,7 @@ class _GuestContactsPageState extends State<GuestContactsPage> {
           itemCount: 5,
           itemBuilder: (context, index) {
             return Container(
-              height: 100,
+              height: Dimensions.height10*10,
               color: index % 2 == 0
                   ? AppColors.secondaryDetailColor
                   : AppColors.detailColor,
@@ -86,30 +87,30 @@ class _GuestContactsPageState extends State<GuestContactsPage> {
                   ),
                   Expanded(
                       child: Padding(
-                    padding: const EdgeInsets.all(4.0),
+                    padding: EdgeInsets.all(Dimensions.marginAll4),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Assunto: ${_subjects[index]}",
                           style: TextStyle(
-                              fontSize: 15,
+                              fontSize: Dimensions.height15,
                               fontWeight: FontWeight.bold,
                               color: AppColors.mainColor),
                           maxLines: 2,
                         ),
-                        const SizedBox(
-                          height: 5,
+                        SizedBox(
+                          height: Dimensions.height5,
                         ),
                         Text(
                           "Enviado dia: ${_dataSends[index]}",
                           style: TextStyle(
-                              fontSize: 15,
+                              fontSize: Dimensions.height15,
                               fontWeight: FontWeight.bold,
                               color: AppColors.mainColor),
                         ),
-                        const SizedBox(
-                          height: 5,
+                        SizedBox(
+                          height: Dimensions.height5,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -123,8 +124,8 @@ class _GuestContactsPageState extends State<GuestContactsPage> {
                                     Icons.close,
                                     color: Colors.red,
                                   ),
-                            const SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: Dimensions.height10,
                             ),
                             _status[index]
                                 ? Column(
@@ -132,7 +133,7 @@ class _GuestContactsPageState extends State<GuestContactsPage> {
                                       Text(
                                         "Respondido - verifque seu email",
                                         style: TextStyle(
-                                            fontSize: 15,
+                                            fontSize: Dimensions.height15,
                                             fontWeight: FontWeight.bold,
                                             color: AppColors.mainColor),
                                       ),
@@ -141,7 +142,7 @@ class _GuestContactsPageState extends State<GuestContactsPage> {
                                 : Text(
                                     "Não respondido - aguarde",
                                     style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: Dimensions.height15,
                                         fontWeight: FontWeight.bold,
                                         color: AppColors.mainColor),
                                   ),

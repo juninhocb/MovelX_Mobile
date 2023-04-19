@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:mobile_movelx/helpers/constants/app_colors.dart';
 import 'package:mobile_movelx/helpers/constants/app_constants.dart';
-import 'package:get/get.dart';
+import 'package:mobile_movelx/helpers/dimensions/dimensions.dart';
 import 'package:mobile_movelx/helpers/routes/app_routes.dart';
 
 class SplashPage extends StatefulWidget {
@@ -32,6 +32,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
+    Dimensions.screenHeight = MediaQuery.of(context).size.height;
+    Dimensions.screenWidth = MediaQuery.of(context).size.width;
     return Container(
       color: AppColors.mainColor,
       child: Center(

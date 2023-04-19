@@ -9,6 +9,7 @@ import 'package:mobile_movelx/views/enterprise/home_items/7_item_page.dart';
 import 'package:mobile_movelx/views/commons/guest_exit_page.dart';
 import 'package:sidebarx/sidebarx.dart';
 
+import '../../helpers/dimensions/dimensions.dart';
 import 'home_items/5_item_page.dart';
 
 class PageSelector extends StatelessWidget {
@@ -42,13 +43,13 @@ class PageSelector extends StatelessWidget {
             return SeventhItemPage();
           case 7:
             return ListView.builder(
-              padding: const EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(top: Dimensions.height10),
               itemBuilder: (context, index) => Container(
-                height: 100,
+                height: Dimensions.height10*10,
                 width: double.infinity,
-                margin: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
+                margin: EdgeInsets.only(bottom: Dimensions.height10, right: Dimensions.width10, left: Dimensions.width10),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(Dimensions.marginAll8*2.5),
                   color: Theme.of(context).canvasColor,
                   boxShadow: const [BoxShadow()],
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_movelx/helpers/dimensions/dimensions.dart';
 
 import '../helpers/constants/app_colors.dart';
 
@@ -17,11 +18,11 @@ class TextAndField extends StatelessWidget {
     return Row(
       children: [
         Text(text, style: TextStyle(
-          fontSize: 15,
+          fontSize: Dimensions.height15,
           fontWeight: FontWeight.bold,
           color: textColor
         ),),
-        const SizedBox(width: 10,),
+        SizedBox(width: Dimensions.width10,),
         const TextField()
       ],
     );

@@ -7,6 +7,7 @@ import 'package:mobile_movelx/views/guest/pages/home_children/project_from_home_
 import 'package:mobile_movelx/views/guest/pages/home_children/woodwork_from_home_page.dart';
 
 import '../../../helpers/constants/app_colors.dart';
+import '../../../helpers/dimensions/dimensions.dart';
 import '../../../widgets/icon_and_text.dart';
 
 class GuestHomePage extends StatefulWidget {
@@ -74,8 +75,8 @@ class _HomePageState extends State<GuestHomePage> {
 
   Widget _buildTopFixedMenu() {
     return Container(
-      padding: EdgeInsets.only(top: 12, right: 12, left: 12),
-      height: 65,
+      padding: EdgeInsets.only(top: Dimensions.height12, right: Dimensions.width12, left: Dimensions.width12),
+      height: Dimensions.height60 + Dimensions.height5,
       color: AppColors.mainColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,30 +86,30 @@ class _HomePageState extends State<GuestHomePage> {
               Icon(
                 Icons.person,
                 color: AppColors.detailColor,
-                size: 30.0,
+                size: Dimensions.height30,
               ),
               SizedBox(
-                width: 12,
+                width: Dimensions.width12,
               ),
               Text(
                 "Blumenau",
-                style: TextStyle(fontSize: 15, color: AppColors.detailColor),
+                style: TextStyle(fontSize: Dimensions.height15, color: AppColors.detailColor),
               ),
               Icon(
                 Icons.arrow_drop_down,
                 color: AppColors.detailColor,
-                size: 30.0,
+                size: Dimensions.height30,
               )
             ],
           ),
           Container(
             decoration: BoxDecoration(
               color: AppColors.detailColor,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(Dimensions.height12),
             ),
             child: Icon(
               Icons.search,
-              size: 30.0,
+              size: Dimensions.height30,
             ),
           )
         ],
@@ -135,7 +136,7 @@ class _HomePageState extends State<GuestHomePage> {
 
       },
       child: SizedBox(
-        height: 275,
+        height: Dimensions.height275,
         child: Stack(
           children: [
             Container(
@@ -143,7 +144,7 @@ class _HomePageState extends State<GuestHomePage> {
               child: CarouselSlider(
                 carouselController: _carouselController,
                 options: CarouselOptions(
-                    height: 200.0,
+                    height: Dimensions.height50*4,
                     onPageChanged: (index, reason) {
                       setState(() {
                         _currentIndexPage = index.toDouble();
@@ -155,9 +156,9 @@ class _HomePageState extends State<GuestHomePage> {
                     builder: (BuildContext context) {
                       return Container(
                         width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        margin: EdgeInsets.symmetric(horizontal: Dimensions.width10/2),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(Dimensions.height12),
                           image: DecorationImage(
                             image: AssetImage(_currentImage),
                             fit: BoxFit.cover,
@@ -172,57 +173,57 @@ class _HomePageState extends State<GuestHomePage> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: 110,
-                width: 265,
+                height: Dimensions.height150 - Dimensions.height40,
+                width: Dimensions.height275 - Dimensions.height10,
                 margin: EdgeInsets.only(
-                    left: 30,
-                    right: 30,
-                    top:170.0),
+                    left: Dimensions.width30,
+                    right: Dimensions.width30,
+                    top: Dimensions.height150 + Dimensions.height10*2),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(Dimensions.height10*2),
                   color: AppColors.secondaryDetailColor,
                   boxShadow: [
                     BoxShadow(
                       color: AppColors.secondaryDetailColor,
-                      blurRadius: 5.0,
-                      offset: Offset(0, 5),
+                      blurRadius: Dimensions.height5,
+                      offset: Offset(0, Dimensions.height5),
                     ),
-                    BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(-5, 0)),
-                    BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(5, 0)),
+                    BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(-Dimensions.height5, 0)),
+                    BoxShadow(color: AppColors.secondaryDetailColor, offset: Offset(Dimensions.height5, 0)),
                   ],
                 ),
                 child: Container(
-                  padding: EdgeInsets.only(top: 15, left: 10, right: 10),
+                  padding: EdgeInsets.only(top: Dimensions.height30/2, left: Dimensions.width10, right: Dimensions.width10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Marcenaria BFD", style: TextStyle(
-                        fontSize: 16,
+                        fontSize: Dimensions.height12 + Dimensions.height12/3,
                         color: AppColors.mainColor,
                         fontWeight: FontWeight.bold
                       ),),
-                      SizedBox(height: 7,),
+                      SizedBox(height: Dimensions.height7,),
                       Row(
                         children: [
                           Wrap(
                             children: List.generate(
                                 5,
                                     (index) => Icon(Icons.star,
-                                    color: AppColors.mainColor, size: 20)),
+                                    color: AppColors.mainColor, size: Dimensions.height10*2)),
                           ),
-                          SizedBox(width: 15,),
+                          SizedBox(width: Dimensions.width10/2,),
                           Text("127 comentários", style: TextStyle(
                             color: AppColors.mainColor
                           ),)
                         ],
                       ),
-                      SizedBox(height: 7,),
+                      SizedBox(height: Dimensions.height7,),
                       Row(
                         children: [
                           IconAndText(icon: Icons.monetization_on, text: "R\$ 230,00",),
-                          SizedBox(width: 5,),
+                          SizedBox(width: Dimensions.width10/2,),
                           IconAndText(icon: Icons.location_on_sharp, text: "1.7 km",),
-                          SizedBox(width: 5,),
+                          SizedBox(width: Dimensions.width10/2,),
                           IconAndText(icon: Icons.timer_outlined, text: "3 dias",),
                         ],
                       )
@@ -241,7 +242,7 @@ class _HomePageState extends State<GuestHomePage> {
 
   Widget _buildDots() {
     return SizedBox(
-      height: 35,
+      height: Dimensions.height30 + Dimensions.height5,
       child: DotsIndicator(
         dotsCount: _pageLength,
         position: _currentIndexPage,
@@ -257,7 +258,7 @@ class _HomePageState extends State<GuestHomePage> {
         itemCount: 6,
         itemBuilder: (context, index){
           return SizedBox(
-            height: index == 0 ? 110 : 125,
+            height: index == 0 ? Dimensions.height150 - Dimensions.height40 : Dimensions.height40*3 + Dimensions.height5,
             child: GestureDetector(
               onTap: (){
                 if (mounted){
@@ -265,7 +266,7 @@ class _HomePageState extends State<GuestHomePage> {
                 }
               },
               child: Container(
-                margin: index == 0 ? EdgeInsets.only(left: 20, right: 20) : EdgeInsets.only(top: 15, left: 20, right: 20),
+                margin: index == 0 ? EdgeInsets.only(left: Dimensions.width10*2, right: Dimensions.width10*2) : EdgeInsets.only(top: Dimensions.height15, left: Dimensions.width10*2, right: Dimensions.width10*2),
                 child: Row(
                   children: [
                     Expanded(
@@ -284,39 +285,39 @@ class _HomePageState extends State<GuestHomePage> {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        height: 125,
+                        height: Dimensions.height150 - Dimensions.height15 - Dimensions.height10,
                         decoration: const BoxDecoration(
                           color: AppColors.secondaryDetailColor,
                           borderRadius: BorderRadius.only(topRight: Radius.circular(12), bottomRight: Radius.circular(12)),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(4.0),
+                          padding: EdgeInsets.all(Dimensions.marginAll4),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 _nameOfEnterprise[index].toUpperCase(),
-                                style: const TextStyle(
-                                  fontSize: 15,
+                                style: TextStyle(
+                                  fontSize: Dimensions.height15,
                                   color: AppColors.mainColor,
                                   fontWeight: FontWeight.bold
                                 ),
 
                               ),
-                              const SizedBox(height: 10,),
-                              const Text(
+                              SizedBox(height: Dimensions.height10,),
+                              Text(
                                 "Rua Gustavo Zimmermann - 1200, Itoupava Central, Blumenau - Santa Catarina- (SC)",
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: Dimensions.height15 - Dimensions.height10/10,
                                   color: AppColors.mainColor
                                 ),
                               ),
-                              const SizedBox(height: 10,),
-                              const Text(
+                              SizedBox(height: Dimensions.height10,),
+                              Text(
                                 "(15) 99628-8616",
                                 style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: Dimensions.height15 - Dimensions.height10/10,
                                     color: AppColors.mainColor
                                 ),
                               ),

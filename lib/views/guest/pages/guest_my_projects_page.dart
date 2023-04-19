@@ -5,6 +5,7 @@ import 'package:mobile_movelx/widgets/icon_and_text.dart';
 import 'package:line_icons/line_icons.dart';
 
 import '../../../helpers/constants/app_colors.dart';
+import '../../../helpers/dimensions/dimensions.dart';
 
 class GuestMyProjects extends StatefulWidget {
   const GuestMyProjects({Key? key}) : super(key: key);
@@ -52,15 +53,15 @@ class _GuestMyProjectsState extends State<GuestMyProjects> {
 
   Widget _buildTopFixedMenu() {
     return Container(
-      padding: EdgeInsets.only(top: 12, right: 12, left: 12),
-      height: 65,
+      padding: EdgeInsets.only(top: Dimensions.height12, right: Dimensions.width12, left: Dimensions.width12),
+      height: Dimensions.height60 + Dimensions.height5,
       color: AppColors.mainColor,
       child: Container(
-        padding: EdgeInsets.only(top: 10),
+        padding: EdgeInsets.only(top: Dimensions.height10),
         width: double.maxFinite,
         child: Text("Meus Projetos", style: TextStyle(
           color: AppColors.detailColor,
-          fontSize: 25
+          fontSize: Dimensions.height50/2
         ),),
       ),
     );
@@ -72,30 +73,30 @@ class _GuestMyProjectsState extends State<GuestMyProjects> {
 
   Widget _buildProjects(BuildContext context) {
     return ListView.builder(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(Dimensions.marginAll8*2),
         itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(Dimensions.marginAll4*2.5),
             decoration: BoxDecoration(
               color: AppColors.secondaryDetailColor,
-              borderRadius: BorderRadius.circular(15)
+              borderRadius: BorderRadius.circular(Dimensions.marginAll8*2)
             ),
-            margin: EdgeInsets.only(top: 15),
+            margin: EdgeInsets.only(top: Dimensions.height15),
             child: Row(
               children: [
                 ClipOval(
                   child: Container(
-                    width: 100,
-                    height: 100,
+                    width: Dimensions.width10*10,
+                    height: Dimensions.height50*2,
                     child: Image.asset(_projectsPath[index]),
                   ),
                 ),
-                SizedBox(width: 20,),
+                SizedBox(width: Dimensions.height40/2),
                 Column(
                   children: [
-                    Text(_projectsNames[index], style: TextStyle(color: AppColors.mainColor, fontSize: 20, fontWeight: FontWeight.bold),),
-                    SizedBox(height: 5,),
+                    Text(_projectsNames[index], style: TextStyle(color: AppColors.mainColor, fontSize: Dimensions.height10*2, fontWeight: FontWeight.bold),),
+                    SizedBox(height: Dimensions.height5,),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_movelx/helpers/constants/app_constants.dart';
 
 import '../../../helpers/constants/app_colors.dart';
+import '../../../helpers/dimensions/dimensions.dart';
 import '../../../widgets/dialogs.dart';
 
 class GuestPricesPage extends StatefulWidget {
@@ -49,7 +50,7 @@ class _GuestPricesPageState extends State<GuestPricesPage> {
       children: [
         CarouselSlider(
             options: CarouselOptions(
-                height: 350,
+                height: Dimensions.height150*2 + Dimensions.height50,
                 viewportFraction: 1.0,
                 autoPlay: true,
                 autoPlayInterval: AppConstants.twoSeconds,
@@ -72,8 +73,8 @@ class _GuestPricesPageState extends State<GuestPricesPage> {
               );
             }).toList()),
         Positioned(
-          bottom: 15,
-          left: 170,
+          bottom: Dimensions.height15,
+          left: Dimensions.width10*17,
           child: DotsIndicator(
               dotsCount: 3,
               position: _currentIndexPage,
@@ -84,24 +85,24 @@ class _GuestPricesPageState extends State<GuestPricesPage> {
         ),
         Positioned(
             child: Container(
-          padding: EdgeInsets.all(50),
+          padding: EdgeInsets.all(Dimensions.marginAll4*12 + Dimensions.marginAll4/2),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 _bigAdvice[_currentIndexPage.toInt()],
-                style: const TextStyle(
+                style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 30,
+                    fontSize: Dimensions.height30,
                     color: AppColors.mainColor),
               ),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: Dimensions.height5,
               ),
               Text(
                 _smallAdvice[_currentIndexPage.toInt()],
-                style: const TextStyle(
-                    fontSize: 20, color: AppColors.secondaryColor),
+                style: TextStyle(
+                    fontSize: Dimensions.height10*2, color: AppColors.secondaryColor),
                 maxLines: 2,
               ),
             ],
@@ -113,41 +114,41 @@ class _GuestPricesPageState extends State<GuestPricesPage> {
 
   Widget _buildSecondHalf() {
     return Container(
-      height: 300,
+      height: Dimensions.height150*2,
       width: double.maxFinite,
       color: AppColors.textColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 60,
-            width: 300,
+            height: Dimensions.height60,
+            width: Dimensions.width30*10,
             child: ElevatedButton(
               onPressed: () async {
                 await Dialogs.showConfirmDialog(context, "Confirmação" , "Deseja prosseguir com o procedimento?", "Prosseguir", "Não");
               },
               child: Text(
                 "Experimentar Grátis",
-                style: TextStyle(color: AppColors.textColor, fontSize: 20),
+                style: TextStyle(color: AppColors.textColor, fontSize: Dimensions.height40/2),
               ),
               style: ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(AppColors.mainColor),
               ),
             ),
           ),
-          const SizedBox(
-            height: 35,
+          SizedBox(
+            height: Dimensions.height30 + Dimensions.height5,
           ),
           SizedBox(
-            height: 60,
-            width: 300,
+            height: Dimensions.height30*2,
+            width: Dimensions.width150*2,
             child: ElevatedButton(
               onPressed: () async{
                 await Dialogs.showConfirmDialog(context, "Confirmação" , "Deseja prosseguir com o procedimento?", "Prosseguir", "Não");
               },
               child: Text(
                 "Adquirir por R\$ 15,00 ao mês ",
-                style: TextStyle(color: AppColors.textColor, fontSize: 20),
+                style: TextStyle(color: AppColors.textColor, fontSize: Dimensions.height40/2),
               ),
               style: ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(AppColors.mainColor),

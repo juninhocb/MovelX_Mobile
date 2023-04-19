@@ -4,6 +4,7 @@ import 'package:mobile_movelx/helpers/constants/app_constants.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_home_page.dart';
 
 import '../../../../helpers/constants/app_colors.dart';
+import '../../../../helpers/dimensions/dimensions.dart';
 
 class ProjectFromHomePage extends StatefulWidget {
   const ProjectFromHomePage({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _ProjectFromHomePageState extends State<ProjectFromHomePage> {
             Positioned(
               child: Container(
                 width: double.maxFinite,
-                height: 250,
+                height: Dimensions.height150 + Dimensions.height50*2,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.cover,
@@ -47,8 +48,8 @@ class _ProjectFromHomePageState extends State<ProjectFromHomePage> {
               ),
             ),
             Positioned(
-                left: 15,
-                top: 15,
+                left: Dimensions.width15,
+                top: Dimensions.height15,
                 child: GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GuestHomePage()));
@@ -59,7 +60,7 @@ class _ProjectFromHomePageState extends State<ProjectFromHomePage> {
                     child: Icon(
                       Icons.arrow_back_outlined,
                       color: AppColors.textColor,
-                      size: 30,
+                      size: Dimensions.height30,
                     ),
                   ),
                 )),
@@ -74,31 +75,31 @@ class _ProjectFromHomePageState extends State<ProjectFromHomePage> {
                   ),
                 )), */
             Positioned(
-                right: 15,
-                bottom: 15,
+                right: Dimensions.width15,
+                bottom: Dimensions.height15,
                 child: Container(
                   decoration: BoxDecoration(
                       shape: BoxShape.circle, color: AppColors.mainColor),
                   child: Icon(
                     Icons.add,
                     color: AppColors.textColor,
-                    size: 30,
+                    size: Dimensions.height30,
                   ),
                 )),
           ],
         ),
-        const SizedBox(
-          height: 15,
+        SizedBox(
+          height: Dimensions.height15,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: Dimensions.marginAll8*2),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Comentários (127)",
                 style: TextStyle(
-                    fontSize: 25,
+                    fontSize: Dimensions.height15 + Dimensions.height10,
                     fontWeight: FontWeight.bold,
                     color: AppColors.mainColor),
               ),
@@ -108,22 +109,24 @@ class _ProjectFromHomePageState extends State<ProjectFromHomePage> {
                     children: List.generate(
                         4,
                         (index) => Icon(Icons.star,
-                            color: AppColors.mainColor, size: 20)),
+                            color: AppColors.mainColor, size: Dimensions.height40/2)),
                   ),
-                  Icon(Icons.star_half, color: AppColors.mainColor, size: 20),
+                  Icon(Icons.star_half, color: AppColors.mainColor, size: Dimensions.height40/2),
                   Text("4.6")
                 ],
               ),
             ],
           ),
         ),
-        Expanded(
+        Expanded
+
+          (
             child: ListView.builder(
                 itemCount: 6,
                 itemBuilder: (context, index) {
                   return Container(
-                    height: 75,
-                    margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                    height: Dimensions.height150/2,
+                    margin: EdgeInsets.symmetric(horizontal: Dimensions.marginAll8*2),
                     decoration: const BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -145,34 +148,35 @@ class _ProjectFromHomePageState extends State<ProjectFromHomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                            margin: EdgeInsets.only(left: 5, top: 10),
+                            margin: EdgeInsets.only(left: Dimensions.width10/2, top: Dimensions.height10),
                             child: Image.asset(_avatarImages[index])
                         ),
-                        const SizedBox(width: 10,),
+                        SizedBox(width: Dimensions.height10,),
                         Padding(
-                          padding: EdgeInsets.only(top: 15),
+                          padding: EdgeInsets.only(top: Dimensions.height15),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                children: const [
-                                  Text("Assunto: Muito bonito", style: TextStyle(fontSize: 15, color: AppColors.mainColor, fontWeight: FontWeight.bold),),
-                                  const SizedBox(width: 70,),
-                                  Text("5", style: TextStyle(fontSize: 15, color: AppColors.mainColor),),
-                                  const SizedBox(width: 5,),
-                                  Icon(Icons.thumb_up_alt_outlined, color: AppColors.mainColor, size: 20,),
-                                  const SizedBox(width: 7,),
-                                  Text("2", style: TextStyle(fontSize: 15, color: AppColors.mainColor),),
-                                  const SizedBox(width: 5,),
-                                  Icon(Icons.thumb_down_alt_outlined, color: AppColors.mainColor, size: 20,)
+                                children:[
+                                  Text("Assunto: Muito bonito", style: TextStyle(fontSize: Dimensions.height15, color: AppColors.mainColor, fontWeight: FontWeight.bold),),
+                                  SizedBox(width: Dimensions.width10*7,),
+                                  Text("5", style: TextStyle(fontSize: Dimensions.height15, color: AppColors.mainColor),),
+                                  SizedBox(width: Dimensions.width10/2,),
+                                  Icon(Icons.thumb_up_alt_outlined, color: AppColors.mainColor, size: Dimensions.height10*2,),
+                                  SizedBox(width: Dimensions.width7,),
+                                  Text("2", style: TextStyle(fontSize: Dimensions.height15, color: AppColors.mainColor),),
+                                  SizedBox(width: Dimensions.width10/2,),
+                                  Icon(Icons.thumb_down_alt_outlined, color: AppColors.mainColor, size: Dimensions.height10*2,)
                                 ],
                               ),
-                              SizedBox(height: 5,),
+                              SizedBox(height: Dimensions.height5,),
                               Text(
                                 "is simply dummy text of the printing and. ",
                                 maxLines: 3,
                                 style: TextStyle(
-                                  fontSize: 12
+                                  fontSize: Dimensions.height10*1.2,
+                                  color: AppColors.mainColor
                                 ),)
                           ],),
                         )

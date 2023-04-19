@@ -4,6 +4,7 @@ import 'package:mobile_movelx/helpers/constants/app_constants.dart';
 import 'package:mobile_movelx/views/guest/pages/guest_home_page.dart';
 
 import '../../../../helpers/constants/app_colors.dart';
+import '../../../../helpers/dimensions/dimensions.dart';
 
 class WoodWorkFromHomePage extends StatefulWidget {
   const WoodWorkFromHomePage({Key? key}) : super(key: key);
@@ -28,23 +29,23 @@ class _WoodWorkFromHomePageState extends State<WoodWorkFromHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 125,
-              width: 125,
+            height: Dimensions.height150 - Dimensions.height30 + Dimensions.height5,
+              width: Dimensions.width150 - Dimensions.width10*2 - Dimensions.height10/2,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(Dimensions.marginAll8*2),
                   image: const DecorationImage(
                       image: AssetImage(AppConstants.logoImage1),
                     fit: BoxFit.cover,
                   ))),
-          const SizedBox(height: 10,),
-          const Text(
+          SizedBox(height: Dimensions.height10,),
+          Text(
             "Entre em contato",
             style: TextStyle(
-                fontSize: 25,
+                fontSize: Dimensions.height50/2,
                 color: AppColors.mainColor,
                 fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 10,),
+          SizedBox(height: Dimensions.height10,),
           _buildForm()
         ],
       ),
@@ -53,10 +54,10 @@ class _WoodWorkFromHomePageState extends State<WoodWorkFromHomePage> {
 
   Widget _buildForm() {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 32),
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+      margin: EdgeInsets.symmetric(horizontal: Dimensions.marginAll8*4),
+      padding: EdgeInsets.symmetric(horizontal: Dimensions.marginAll8*4, vertical: Dimensions.marginAll8*2),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(Dimensions.marginAll8*2),
         color: AppColors.secondaryDetailColor,
       ),
       child: Column(
@@ -72,8 +73,8 @@ class _WoodWorkFromHomePageState extends State<WoodWorkFromHomePage> {
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: AppColors.mainColor),
                   ))),
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: Dimensions.height10,
           ),
           TextFormField(
               cursorColor: AppColors.mainColor,
@@ -86,8 +87,8 @@ class _WoodWorkFromHomePageState extends State<WoodWorkFromHomePage> {
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: AppColors.mainColor),
                   ))),
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: Dimensions.height10,
           ),
           TextFormField(
               cursorColor: AppColors.mainColor,
@@ -100,7 +101,7 @@ class _WoodWorkFromHomePageState extends State<WoodWorkFromHomePage> {
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: AppColors.mainColor),
                   ))),
-          const SizedBox(height: 15,),
+          SizedBox(height: Dimensions.height15,),
           TextFormField(
             maxLines: 2,
               maxLength: 50,
@@ -118,8 +119,8 @@ class _WoodWorkFromHomePageState extends State<WoodWorkFromHomePage> {
                   ),
                   helperText: 'Helper Text',
               )),
-          const SizedBox(
-            height: 15,
+          SizedBox(
+            height: Dimensions.height15,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -135,7 +136,7 @@ class _WoodWorkFromHomePageState extends State<WoodWorkFromHomePage> {
                     backgroundColor: MaterialStatePropertyAll(AppColors.textColor),
                     foregroundColor: MaterialStatePropertyAll(AppColors.mainColor)),
               ),
-              const SizedBox(width: 15,),
+              SizedBox(width: Dimensions.height15,),
               ElevatedButton(
                 onPressed: () {},
                 child: Text("Enviar"),
